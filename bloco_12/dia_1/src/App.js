@@ -34,7 +34,7 @@ class App extends Component {
 
   render() {
     return (
-    <main>
+    <main className="main-container">
       <h1>Pokedex</h1>
       <Pokemon pokemon={data[this.state.indexPokemon]} />
       <TypeButtons pokemons={data} />
