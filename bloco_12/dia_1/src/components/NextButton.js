@@ -1,5 +1,5 @@
 import { Component } from "react";
-
+import '../style/NextButton.css';
 
 class NextButton extends Component {
   render() {
