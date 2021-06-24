@@ -8,7 +8,7 @@ function App() {
     <main>
       <h1>Pokedex</h1>
       <Pokemon pokemon={data[0]}/>
-      <PokeButton />
+      <PokeButton pokemons={data}/>
     </main>
   );
 }
