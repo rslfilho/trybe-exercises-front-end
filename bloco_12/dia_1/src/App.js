@@ -1,18 +1,47 @@
+import { Component } from 'react';
 import './App.css';
-import TypeButtons from './components/TypeButtons';
 import Pokemon from './components/Pokemon';
-import data from './data';
+import TypeButtons from './components/TypeButtons';
 import NextButton from './components/NextButton';
+import data from './data';
 
-function App() {
-  return (
+
+  
+class App extends Component {
+  constructor() {
+    super();
+
+    this.nextPokemon = this.nextPokemon.bind(this);
+
+    this.state = {
+      indexPokemon: 0,
+    }
+  }
+  
+  nextPokemon() {
+    this.setState((prevState, _props) => {
+      if (prevState.indexPokemon < 8) {
+        return {
+          indexPokemon: prevState.indexPokemon + 1,
+        }
+      } else {
+        return {
+          indexPokemon: 0,
+        }
+      }
+    })
+  }
+
+  render() {
+    return (
     <main>
       <h1>Pokedex</h1>
-      <Pokemon pokemon={data[0]}/>
-      <TypeButtons pokemons={data}/>
-      <NextButton />
+      <Pokemon pokemon={data[this.state.indexPokemon]} />
+      <TypeButtons pokemons={data} />
+      <NextButton onClick={this.nextPokemon} />
     </main>
-  );
+    )
+  }
 }
 
 export default App;
