@@ -6,7 +6,7 @@ class PokeButton extends Component {
     const { data } = this.props;
     
     return (
-      <section className="pokebutton">
+      <section className="type-buttons">
 
       </section>
     );
