@@ -10,6 +10,7 @@ class Form extends Component {
     this.state = {
       nome: '',
       email: '',
+      cpf: '',
     }
   }
 
@@ -23,7 +24,7 @@ class Form extends Component {
   }
 
   render() {
-    const { nome, email } = this.state;
+    const { nome, email, cpf } = this.state;
 
     return (
       <form>
@@ -42,6 +43,13 @@ class Form extends Component {
             inputLabel='Email:'
             inputValue={email}
             inputMaxlength={50}
+            onChangeInput={this.handleChange}
+          />
+          <Input 
+            inputName='cpf'
+            inputLabel='CPF:'
+            inputValue={cpf}
+            inputMaxlength={11}
             onChangeInput={this.handleChange}
           />
         </fieldset>
