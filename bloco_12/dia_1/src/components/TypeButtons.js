@@ -4,14 +4,12 @@ import TypeButton from "./TypeButton";
 
 class TypeButtons extends Component {
   render() {
-    const { pokemons } = this.props;
-    const pokemonTypes = pokemons.map(({ type }) => type);
-    const uniqueTypes = Array.from(new Set(pokemonTypes));
+    const { types, onClick } = this.props;
 
     return (
       <section className="type-buttons">
         {
-          uniqueTypes.map((type) => <TypeButton key={type} type={type} />)
+          types.map((type) => <TypeButton key={type} type={type} onClick={() => onClick(type)} />)
         }
       </section>
     );

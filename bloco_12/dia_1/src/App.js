@@ -9,16 +9,28 @@ class App extends Component {
   constructor() {
     super();
 
+    const pokemonTypes = data
+      .map(({ type }) => type)
+      .filter((type, index, array) => array.indexOf(type) === index)
+
+    pokemonTypes.unshift('All');
+
+    this.types = pokemonTypes;
+
     this.nextPokemon = this.nextPokemon.bind(this);
+    this.filterData = this.filterData.bind(this);
+    this.setType = this.setType.bind(this);
 
     this.state = {
       indexPokemon: 0,
+      filteredData: data,
+      type: 'All',
     }
   }
   
   nextPokemon() {
     this.setState((prevState, _props) => {
-      if (prevState.indexPokemon < 8) {
+      if (prevState.indexPokemon < this.state.filteredData.length - 1) {
         return {
           indexPokemon: prevState.indexPokemon + 1,
         }
@@ -30,12 +42,31 @@ class App extends Component {
     })
   }
 
+  filterData() {
+    if (this.state.type !== 'All') {
+      this.setState({
+        filteredData: data.filter(({ type }) => type === this.state.type),
+        indexPokemon: 0,
+      })
+    } else {
+      this.setState({
+        filteredData: data,
+      })
+    }
+  }
+
+  setType(type) {
+    this.setState({
+      type: type,
+    }, () => this.filterData())
+  }
+
   render() {
     return (
     <main className="main-container">
       <h1>Pokedex</h1>
-      <Pokemon pokemon={data[this.state.indexPokemon]} />
-      <TypeButtons pokemons={data} />
+      <Pokemon pokemon={this.state.filteredData[this.state.indexPokemon]} />
+      <TypeButtons types={this.types} onClick={this.setType} />
       <NextButton onClick={this.nextPokemon} />
     </main>
     )

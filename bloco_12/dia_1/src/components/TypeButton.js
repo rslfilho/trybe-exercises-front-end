@@ -3,10 +3,10 @@ import { Component } from "react";
 
 class TypeButton extends Component {
   render() {
-    const { type } = this.props;
+    const { type, onClick } = this.props;
 
     return (
-      <button className="type-button">
+      <button className="type-button" onClick={ onClick }>
         {
           type
         }
