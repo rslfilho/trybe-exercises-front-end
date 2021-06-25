@@ -26,7 +26,7 @@ class PersonalData extends Component {
 
     this.setState({
       [name]: value,
-    }, () => getState(this.state, 'personalData'));
+    }, () => getState(this.state));
   }
 
   render() {

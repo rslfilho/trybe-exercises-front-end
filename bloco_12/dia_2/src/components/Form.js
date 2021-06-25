@@ -7,15 +7,14 @@ class Form extends Component {
 
     this.getChildState = this.getChildState.bind(this);
 
-    this.state = {
-      personalData: {},
-    }
+    this.state = {};
   }
 
-  getChildState(state, child) {
-    this.setState({
-      [child]: state,
-    })
+  getChildState(childState) {
+    this.setState((prevState, _props) => ({
+      ...prevState,
+      ...childState,
+    }))
   }
 
   render() {
