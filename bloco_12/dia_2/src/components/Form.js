@@ -11,6 +11,7 @@ class Form extends Component {
       nome: '',
       email: '',
       cpf: '',
+      adress: '',
     }
   }
 
@@ -24,7 +25,7 @@ class Form extends Component {
   }
 
   render() {
-    const { nome, email, cpf } = this.state;
+    const { nome, email, cpf, adress } = this.state;
 
     return (
       <form>
@@ -50,6 +51,13 @@ class Form extends Component {
             inputLabel='CPF:'
             inputValue={cpf}
             inputMaxlength={11}
+            onChangeInput={this.handleChange}
+          />
+          <Input 
+            inputName='adress'
+            inputLabel='Endereço:'
+            inputValue={adress}
+            inputMaxlength={200}
             onChangeInput={this.handleChange}
           />
         </fieldset>
