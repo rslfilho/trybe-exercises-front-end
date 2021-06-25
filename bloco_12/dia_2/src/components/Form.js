@@ -14,6 +14,7 @@ class Form extends Component {
       cpf: '',
       adress: '',
       city: '',
+      state: 'AC',
       type: 'casa',
     }
   }
@@ -24,11 +25,11 @@ class Form extends Component {
 
     this.setState({
       [name]: value,
-    }, () => console.log(this.state));
+    });
   }
 
   render() {
-    const { nome, email, cpf, adress, city, type } = this.state;
+    const { nome, email, cpf, adress, city } = this.state;
 
     return (
       <form>
@@ -70,7 +71,10 @@ class Form extends Component {
             inputMaxlength={28}
             onChangeInput={this.handleChange}
           />
-          <StateSelect />
+          <StateSelect 
+            selectName='state'
+            onChangeSelect={this.handleChange} 
+          />
           <Input 
             inputType='radio'
             inputName='type'

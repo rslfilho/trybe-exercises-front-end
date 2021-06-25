@@ -4,9 +4,11 @@ import Option from "./Option";
 
 class StateSelect extends Component {
   render() {
+    const { selectName, onChangeSelect } = this.props;
+
     return (
       <label>Estado:
-      <select>
+      <select name={selectName} onChange={onChangeSelect}>
         {
           states
             .map((state) => Object.keys(state)[0])
