@@ -1,5 +1,5 @@
 import { Component } from "react";
-
+import '../style/TypeButton.css';
 
 class TypeButton extends Component {
   render() {

@@ -1,5 +1,6 @@
 import { Component } from "react";
 import TypeButton from "./TypeButton";
+import '../style/TypeButtons.css';
 
 
 class TypeButtons extends Component {

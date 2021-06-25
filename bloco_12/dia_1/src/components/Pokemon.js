@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
+import '../style/Pokemon.css';
 
 class Pokemon extends Component {
   render(){

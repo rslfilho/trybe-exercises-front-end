@@ -1,19 +1,14 @@
-/* .next-button-container {
-  align-self: center;
-} */
-
 .next-button {
   background-color: rgb(19, 104, 19);
   color: white;
   width: 80px;
   height: 80px;
-  border: none;
   line-height: 1.5;
 }
 
-.next-button:hover {
+/* .next-button:hover {
   border: 3px solid rgba(255, 166, 0, 0.6);
-}
+} */
 
 .next-button:disabled {
   background-color: gray;
