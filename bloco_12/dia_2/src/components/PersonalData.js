@@ -20,12 +20,13 @@ class PersonalData extends Component {
   }
 
   handleChange({ target }) {
+    const { getState } = this.props;
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
 
     this.setState({
       [name]: value,
-    });
+    }, () => getState(this.state, 'personalData'));
   }
 
   render() {
