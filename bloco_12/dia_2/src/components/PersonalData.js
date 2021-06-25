@@ -33,6 +33,7 @@ class PersonalData extends Component {
 
     return (
       <fieldset>
+        <legend>Dados Pessoais</legend>
         <Input 
           inputName='nome'
           inputLabel='Nome:'
