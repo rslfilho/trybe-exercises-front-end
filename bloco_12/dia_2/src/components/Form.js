@@ -1,10 +1,41 @@
 import { Component } from "react";
+import Input from "./Input";
 
 class Form extends Component {
+  constructor() {
+    super();
+
+    this.handleChange = this.handleChange.bind(this);
+
+    this.state = {
+      nome: '',
+    }
+  }
+
+  handleChange({ target }) {
+    const { name } = target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+
+    this.setState({
+      [name]: value,
+    });
+  }
+
   render() {
+    const { nome } = this.state;
+
     return (
       <form>
-        Form
+        <h1>Formuário de cadastro de currículo</h1>
+        <fieldset>
+          <Input 
+            inputName='nome'
+            inputLabel='Nome:'
+            inputValue={nome.toUpperCase()}
+            inputMaxlength={40}
+            onChangeInput={this.handleChange}
+          />
+        </fieldset>
       </form>
     );
   }

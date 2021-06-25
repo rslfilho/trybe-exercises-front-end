@@ -2,15 +2,17 @@ import { Component } from "react";
 
 class Input extends Component {
   render() {
-    const { inputLabel, inputType, inputName, onChangeInput, isRequiredInput } = this.props;
+    const { inputLabel, inputType, inputName, inputValue, onChangeInput, inputIsRequired, inputMaxlength } = this.props;
 
     return (
       <label>{inputLabel}
         <input 
           type={inputType}
           name={inputName}
+          value={inputValue}
           onChange={onChangeInput}
-          isRequired={isRequiredInput}
+          required={inputIsRequired}
+          maxLength={inputMaxlength}
         />
       </label>
     )
