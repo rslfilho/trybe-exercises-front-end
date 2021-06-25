@@ -1,5 +1,7 @@
 import { Component } from "react";
 import '../style/TypeButton.css';
+import PropTypes from 'prop-types';
+
 
 class TypeButton extends Component {
   render() {
@@ -11,6 +13,11 @@ class TypeButton extends Component {
       </button>
     )
   }
+}
+
+TypeButton.propTypes = {
+  type: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
 }
 
 export default TypeButton;

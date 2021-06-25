@@ -1,5 +1,6 @@
 import { Component } from "react";
 import '../style/NextButton.css';
+import PropTypes from 'prop-types';
 
 class NextButton extends Component {
   render() {
@@ -11,6 +12,11 @@ class NextButton extends Component {
       </div>
     )
   }
+}
+
+NextButton.propTypes = {
+  onClick: PropTypes.func.isRequired,
+  isDisable: PropTypes.bool.isRequired,
 }
 
 export default NextButton;
