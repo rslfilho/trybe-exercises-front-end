@@ -1,5 +1,6 @@
 import { Component } from "react";
 import Input from "./Input";
+import StateSelect from "./Select";
 
 class Form extends Component {
   constructor() {
@@ -13,6 +14,7 @@ class Form extends Component {
       cpf: '',
       adress: '',
       city: '',
+      type: 'casa',
     }
   }
 
@@ -22,11 +24,11 @@ class Form extends Component {
 
     this.setState({
       [name]: value,
-    });
+    }, () => console.log(this.state));
   }
 
   render() {
-    const { nome, email, cpf, adress, city } = this.state;
+    const { nome, email, cpf, adress, city, type } = this.state;
 
     return (
       <form>
@@ -66,6 +68,21 @@ class Form extends Component {
             inputLabel='Cidade:'
             inputValue={city}
             inputMaxlength={28}
+            onChangeInput={this.handleChange}
+          />
+          <StateSelect />
+          <Input 
+            inputType='radio'
+            inputName='type'
+            inputLabel='Casa:'
+            inputValue='Casa'
+            onChangeInput={this.handleChange}
+          />
+          <Input 
+            inputType='radio'
+            inputName='type'
+            inputLabel='Apartamento:'
+            inputValue='Apartamento'
             onChangeInput={this.handleChange}
           />
         </fieldset>
