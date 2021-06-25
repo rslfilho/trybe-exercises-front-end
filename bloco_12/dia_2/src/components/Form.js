@@ -9,6 +9,7 @@ class Form extends Component {
 
     this.state = {
       nome: '',
+      email: '',
     }
   }
 
@@ -22,7 +23,7 @@ class Form extends Component {
   }
 
   render() {
-    const { nome } = this.state;
+    const { nome, email } = this.state;
 
     return (
       <form>
@@ -33,6 +34,14 @@ class Form extends Component {
             inputLabel='Nome:'
             inputValue={nome.toUpperCase()}
             inputMaxlength={40}
+            onChangeInput={this.handleChange}
+          />
+          <Input 
+            inputType='email'
+            inputName='email'
+            inputLabel='Email:'
+            inputValue={email}
+            inputMaxlength={50}
             onChangeInput={this.handleChange}
           />
         </fieldset>
