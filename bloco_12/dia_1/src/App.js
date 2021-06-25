@@ -4,8 +4,6 @@ import Pokemon from './components/Pokemon';
 import TypeButtons from './components/TypeButtons';
 import NextButton from './components/NextButton';
 import data from './data';
-
-
   
 class App extends Component {
   constructor() {
