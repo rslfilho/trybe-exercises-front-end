@@ -76,12 +76,14 @@ class App extends Component {
   }
 
   render() {
+    const { filteredData, indexPokemon, nextDisable }= this.state;
+    
     return (
     <main className="main-container">
       <h1>Pokedex</h1>
-      <Pokemon pokemon={this.state.filteredData[this.state.indexPokemon]} />
+      <Pokemon pokemon={filteredData[indexPokemon]} />
       <TypeButtons types={this.types} onClick={this.setType} />
-      <NextButton onClick={this.nextPokemon} isDisable={this.state.nextDisable} />
+      <NextButton onClick={this.nextPokemon} isDisable={nextDisable} />
     </main>
     )
   }

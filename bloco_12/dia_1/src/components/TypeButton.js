@@ -7,9 +7,7 @@ class TypeButton extends Component {
 
     return (
       <button className="type-button" onClick={ onClick }>
-        {
-          type
-        }
+        { type }
       </button>
     )
   }
