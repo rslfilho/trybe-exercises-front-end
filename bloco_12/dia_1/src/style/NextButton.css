@@ -14,3 +14,7 @@
 .next-button:hover {
   border: 3px solid rgba(255, 166, 0, 0.6);
 }
+
+.next-button:disabled {
+  background-color: gray;
+}

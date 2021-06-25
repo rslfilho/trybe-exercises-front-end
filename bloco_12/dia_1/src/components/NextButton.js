@@ -3,11 +3,11 @@ import '../style/NextButton.css';
 
 class NextButton extends Component {
   render() {
-    const { onClick } = this.props;
+    const { onClick, isDisable } = this.props;
 
     return (
       <div className="next-button-container">
-        <button onClick={onClick} className="next-button">Próximo Pokemon</button>
+        <button onClick={onClick} className="next-button" disabled={isDisable}>Próximo Pokemon</button>
       </div>
     )
   }

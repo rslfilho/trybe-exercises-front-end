@@ -20,11 +20,13 @@ class App extends Component {
     this.nextPokemon = this.nextPokemon.bind(this);
     this.filterData = this.filterData.bind(this);
     this.setType = this.setType.bind(this);
+    this.isDisable = this.isDisable.bind(this);
 
     this.state = {
       indexPokemon: 0,
       filteredData: data,
       type: 'All',
+      nextDisable: false,
     }
   }
   
@@ -42,16 +44,28 @@ class App extends Component {
     })
   }
 
+  isDisable() {
+    if(this.state.filteredData.length <= 1) {
+      this.setState({
+        nextDisable: true,
+      })
+    } else {
+      this.setState({
+        nextDisable: false,
+      })
+    }
+  }
+
   filterData() {
     if (this.state.type !== 'All') {
       this.setState({
         filteredData: data.filter(({ type }) => type === this.state.type),
         indexPokemon: 0,
-      })
+      }, this.isDisable)
     } else {
       this.setState({
         filteredData: data,
-      })
+      }, this.isDisable)
     }
   }
 
@@ -67,7 +81,7 @@ class App extends Component {
       <h1>Pokedex</h1>
       <Pokemon pokemon={this.state.filteredData[this.state.indexPokemon]} />
       <TypeButtons types={this.types} onClick={this.setType} />
-      <NextButton onClick={this.nextPokemon} />
+      <NextButton onClick={this.nextPokemon} isDisable={this.state.nextDisable} />
     </main>
     )
   }
