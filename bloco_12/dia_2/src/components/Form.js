@@ -13,15 +13,19 @@ class Form extends Component {
   }
 
   getChildState(childState) {
+    const { getState } = this.props;
+
     this.setState((prevState, _props) => ({
       ...prevState,
       ...childState,
-    }))
+    }), () => getState(this.state))
   }
 
   render() {
+    const { onSubmitForm } = this.props;
+
     return (
-      <form>
+      <form onSubmit={onSubmitForm}>
         <h1>Formuário de cadastro de currículo</h1>
         <PersonalData getState={this.getChildState} />
         <JobInfo getState={this.getChildState} />
