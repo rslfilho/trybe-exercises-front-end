@@ -1,4 +1,5 @@
 import { Component } from "react";
+import JobInfo from "./JobInfo";
 import PersonalData from "./PersonalData";
 
 class Form extends Component {
@@ -22,6 +23,7 @@ class Form extends Component {
       <form>
         <h1>Formuário de cadastro de currículo</h1>
         <PersonalData getState={this.getChildState} />
+        <JobInfo getState={this.getChildState} />
       </form>
     );
   }
