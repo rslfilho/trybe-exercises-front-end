@@ -2,7 +2,7 @@ import { Component } from "react";
 
 class Textarea extends Component {
   render() {
-    const { textareaName, textareaLabel, textareaMaxlength, isRequired, onChangeTextarea, textareaValue } = this.props;
+    const { textareaName, textareaLabel, textareaMaxlength, isRequired, onChangeTextarea, textareaValue, onMouseEnter } = this.props;
 
     return (
       <label>{textareaLabel}
@@ -12,6 +12,7 @@ class Textarea extends Component {
           value={textareaValue}
           required={isRequired} 
           onChange={onChangeTextarea} 
+          onMouseEnter={onMouseEnter}
         />
       </label>
     );

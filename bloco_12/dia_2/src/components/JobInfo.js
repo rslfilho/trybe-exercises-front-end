@@ -7,11 +7,13 @@ class JobInfo extends Component {
     super();
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleMouseEnter =this.handleMouseEnter.bind(this);
 
     this.state = {
       resume: '',
       office: '',
       officeDescription: '',
+      mouseHasEntered: false, 
     }
   }
 
@@ -25,6 +27,18 @@ class JobInfo extends Component {
     }, () => getState(this.state));
   }
   
+  handleMouseEnter() {
+    const { mouseHasEntered } = this.state;
+    const { getState } = this.props;
+
+    if (!mouseHasEntered) {
+      alert ('Preencha com cuidado esta informação.');
+      this.setState({
+        mouseHasEntered: true,
+      }, () => getState(this.state))
+    }
+  }
+
   render() {
     const { resume, office, officeDescription } = this.state;
 
@@ -38,12 +52,13 @@ class JobInfo extends Component {
           textareaMaxlength={1000}
           onChangeTextarea={this.handleChange}
         />
-        <Input 
-          inputName='office'
-          inputLabel='Cargo:'
-          inputValue={office}
-          inputMaxlength={40}
-          onChangeInput={this.handleChange}
+        <Textarea 
+          textareaName='office'
+          textareaLabel='Cargo:'
+          textareaValue={office}
+          textareaMaxlength={40}
+          onChangeTextarea={this.handleChange}
+          onMouseEnter={this.handleMouseEnter}
         />
         <Input 
           inputName='officeDescription'
