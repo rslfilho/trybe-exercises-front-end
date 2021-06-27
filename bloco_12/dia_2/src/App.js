@@ -33,12 +33,12 @@ class App extends Component {
   }
 
   render() {
-    const { curriculumClass } = this.state;
+    const { curriculumClass, form } = this.state;
 
     return (
       <div className="App">
         <h1>Formuário de cadastro de currículo</h1>
-        <Curriculum curriculumClass={curriculumClass} />
+        <Curriculum curriculumClass={curriculumClass} formsInfo={form} />
         <Form onSubmitForm={this.onSubmitForm} getState={this.getChildState} />
       </div>
     );
