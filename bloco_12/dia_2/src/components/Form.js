@@ -7,18 +7,56 @@ class Form extends Component {
   constructor() {
     super();
 
-    this.getChildState = this.getChildState.bind(this);
+    this.clearForm = this.clearForm.bind(this);
+    this.handleChange = this.handleChange.bind(this);
 
-    this.state = {};
+    this.state = {
+      nome: '',
+      email: '',
+      cpf: '',
+      adress: '',
+      city: '',
+      state: 'AC',
+      type: 'casa',
+      resume: '',
+      office: '',
+      officeDescription: '',
+    }
   }
 
-  getChildState(childState) {
+  handleChange({ target }) {
     const { getState } = this.props;
+    const { name } = target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
 
-    this.setState((prevState, _props) => ({
-      ...prevState,
-      ...childState,
-    }), () => getState(this.state))
+    if (name === 'nome') {
+      this.setState({
+        [name]: value.toUpperCase(),
+      }, () => getState(this.state));
+    } else {
+      this.setState({
+        [name]: value,
+      }, () => getState(this.state));
+    }
+  }
+
+  clearForm() {
+    const { hideDiv } = this.props;
+
+    this.setState({
+      nome: '',
+      email: '',
+      cpf: '',
+      adress: '',
+      city: '',
+      state: 'AC',
+      type: '',
+      resume: '',
+      office: '',
+      officeDescription: '',
+    }, () => {
+      hideDiv();
+    })
   }
 
   render() {
@@ -26,9 +64,9 @@ class Form extends Component {
 
     return (
       <form onSubmit={onSubmitForm}>
-        <PersonalData getState={this.getChildState} />
-        <JobInfo getState={this.getChildState} />
-        <ButtonsContainer />
+        <PersonalData handleChange={this.handleChange} state={this.state} />
+        <JobInfo handleChange={this.handleChange} state={this.state} />
+        <ButtonsContainer clearForm={this.clearForm} />
       </form>
     );
   }

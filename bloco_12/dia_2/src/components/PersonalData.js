@@ -3,40 +3,9 @@ import Input from "./Input";
 import StateSelect from "./Select";
 
 class PersonalData extends Component {
-  constructor() {
-    super();
-
-    this.handleChange = this.handleChange.bind(this);
-
-    this.state = {
-      nome: '',
-      email: '',
-      cpf: '',
-      adress: '',
-      city: '',
-      state: 'AC',
-      type: 'casa',
-    }
-  }
-
-  handleChange({ target }) {
-    const { getState } = this.props;
-    const { name } = target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
-
-    if (name === 'nome') {
-      this.setState({
-        [name]: value.toUpperCase(),
-      }, () => getState(this.state));
-    } else {
-      this.setState({
-        [name]: value,
-      }, () => getState(this.state));
-    }
-  }
-
   render() {
-    const { nome, email, cpf, adress, city } = this.state;
+    const { handleChange, state } = this.props
+    const { nome, email, cpf, adress, city } = state;
 
     return (
       <fieldset>
@@ -46,7 +15,7 @@ class PersonalData extends Component {
           inputLabel='Nome:'
           inputValue={nome}
           inputMaxlength={40}
-          onChangeInput={this.handleChange}
+          onChangeInput={handleChange}
         />
         <Input 
           inputType='email'
@@ -54,46 +23,46 @@ class PersonalData extends Component {
           inputLabel='Email:'
           inputValue={email}
           inputMaxlength={50}
-          onChangeInput={this.handleChange}
+          onChangeInput={handleChange}
         />
         <Input 
           inputName='cpf'
           inputLabel='CPF:'
           inputValue={cpf}
           inputMaxlength={11}
-          onChangeInput={this.handleChange}
+          onChangeInput={handleChange}
         />
         <Input 
           inputName='adress'
           inputLabel='Endereço:'
           inputValue={adress}
           inputMaxlength={200}
-          onChangeInput={this.handleChange}
+          onChangeInput={handleChange}
         />
         <Input 
           inputName='city'
           inputLabel='Cidade:'
           inputValue={city}
           inputMaxlength={28}
-          onChangeInput={this.handleChange}
+          onChangeInput={handleChange}
         />
         <StateSelect 
           selectName='state'
-          onChangeSelect={this.handleChange} 
+          onChangeSelect={handleChange} 
         />
         <Input 
           inputType='radio'
           inputName='type'
           inputLabel='Casa:'
           inputValue='Casa'
-          onChangeInput={this.handleChange}
+          onChangeInput={handleChange}
         />
         <Input 
           inputType='radio'
           inputName='type'
           inputLabel='Apartamento:'
           inputValue='Apartamento'
-          onChangeInput={this.handleChange}
+          onChangeInput={handleChange}
         />
       </fieldset>
     )

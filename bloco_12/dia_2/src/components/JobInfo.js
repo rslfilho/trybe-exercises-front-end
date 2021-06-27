@@ -6,41 +6,27 @@ class JobInfo extends Component {
   constructor() {
     super();
 
-    this.handleChange = this.handleChange.bind(this);
     this.handleMouseEnter =this.handleMouseEnter.bind(this);
 
     this.state = {
-      resume: '',
-      office: '',
-      officeDescription: '',
       mouseHasEntered: false, 
     }
-  }
-
-  handleChange({ target }) {
-    const { getState } = this.props;
-    const { name } = target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
-
-    this.setState({
-      [name]: value,
-    }, () => getState(this.state));
   }
   
   handleMouseEnter() {
     const { mouseHasEntered } = this.state;
-    const { getState } = this.props;
 
     if (!mouseHasEntered) {
       alert ('Preencha com cuidado esta informação.');
       this.setState({
         mouseHasEntered: true,
-      }, () => getState(this.state))
+      })
     }
   }
 
   render() {
-    const { resume, office, officeDescription } = this.state;
+    const { handleChange, state } = this.props;
+    const { resume, office, officeDescription } = state;
 
     return (
       <fieldset>
@@ -50,14 +36,14 @@ class JobInfo extends Component {
           textareaLabel='Resumo do Currículo:'
           textareaValue={resume}
           textareaMaxlength={1000}
-          onChangeTextarea={this.handleChange}
+          onChangeTextarea={handleChange}
         />
         <Textarea 
           textareaName='office'
           textareaLabel='Cargo:'
           textareaValue={office}
           textareaMaxlength={40}
-          onChangeTextarea={this.handleChange}
+          onChangeTextarea={handleChange}
           onMouseEnter={this.handleMouseEnter}
         />
         <Input 
@@ -65,7 +51,7 @@ class JobInfo extends Component {
           inputLabel='Descrição do cargo:'
           inputValue={officeDescription}
           inputMaxlength={500}
-          onChangeInput={this.handleChange}
+          onChangeInput={handleChange}
         />
       </fieldset>
     );

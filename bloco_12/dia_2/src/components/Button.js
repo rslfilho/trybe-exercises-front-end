@@ -2,12 +2,10 @@ import { Component } from "react";
 
 class Button extends Component {
   render() {
-    const { buttonType, buttonText } = this.props;
+    const { buttonType, buttonText, onClickButton } = this.props;
     
     return (
-      <button
-        type={buttonType}
-      >
+      <button type={buttonType} onClick={onClickButton} >
         {buttonText}
       </button>
     );

@@ -9,6 +9,7 @@ class App extends Component {
 
     this.onSubmitForm = this.onSubmitForm.bind(this);
     this.getChildState = this.getChildState.bind(this);
+    this.hideDiv = this.hideDiv.bind(this);
 
     this.state ={
       form: {},
@@ -20,6 +21,12 @@ class App extends Component {
     e.preventDefault();
     this.setState({
       curriculumClass: 'curriculum'
+    })
+  }
+
+  hideDiv() {
+    this.setState({
+      curriculumClass: 'curriculum-no-display',
     })
   }
 
@@ -39,7 +46,7 @@ class App extends Component {
       <div className="App">
         <h1>Formuário de cadastro de currículo</h1>
         <Curriculum curriculumClass={curriculumClass} formsInfo={form} />
-        <Form onSubmitForm={this.onSubmitForm} getState={this.getChildState} />
+        <Form onSubmitForm={this.onSubmitForm} hideDiv={this.hideDiv} getState={this.getChildState} />
       </div>
     );
   }
