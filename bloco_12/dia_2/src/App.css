@@ -1,0 +1,51 @@
+body {
+  margin: 0;
+  background-color: #c99e84;
+  font-family: sans-serif;
+  color: #b47f75;
+}
+
+.App {
+  background-color: #e9dabc;
+  width: 80%;
+  border-radius: 5px;
+  border: 1px solid #dcbb95;
+  padding: 20px;
+  margin: 30px auto;
+}
+
+fieldset {
+  display: flex;
+  flex-direction: column;
+  margin: 30px;
+  border-color: #A1BCC7;
+}
+
+legend {
+  font-size: 20px;
+}
+
+label {
+  margin: 10px 50px 20px 20px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #dcbb95;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+input[type='radio'] {
+  color: black;
+}
+
+textarea {
+  width: 100%;
+  resize: none;
+  padding: 10px;
+  border: 1px solid #dcbb95;
+  border-radius: 5px;
+  margin: 10px;
+}
