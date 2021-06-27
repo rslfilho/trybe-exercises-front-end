@@ -6,7 +6,7 @@ class Curriculum extends Component {
   render() {
     const { curriculumClass, formsInfo } = this.props;
     const { nome, email, cpf, adress, city, state, type, resume, office, officeDescription } = formsInfo;
-    console.log(nome)
+    
     return (
       <div className={curriculumClass}>
         <fieldset>

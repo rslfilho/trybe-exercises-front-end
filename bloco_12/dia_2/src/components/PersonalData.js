@@ -24,9 +24,15 @@ class PersonalData extends Component {
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
 
-    this.setState({
-      [name]: value,
-    }, () => getState(this.state));
+    if (name === 'nome') {
+      this.setState({
+        [name]: value.toUpperCase(),
+      }, () => getState(this.state));
+    } else {
+      this.setState({
+        [name]: value,
+      }, () => getState(this.state));
+    }
   }
 
   render() {
@@ -38,7 +44,7 @@ class PersonalData extends Component {
         <Input 
           inputName='nome'
           inputLabel='Nome:'
-          inputValue={nome.toUpperCase()}
+          inputValue={nome}
           inputMaxlength={40}
           onChangeInput={this.handleChange}
         />
