@@ -1,3 +1,7 @@
 .curriculum-no-display {
   display: none;
 }
+
+.curriculum {
+  border: 1px solid black;
+}

@@ -12,12 +12,15 @@ class App extends Component {
 
     this.state ={
       form: {},
+      curriculumClass: 'curriculum-no-display',
     };
   }
 
   onSubmitForm(e) {
     e.preventDefault();
-    alert ('Formulário Enviado!');
+    this.setState({
+      curriculumClass: 'curriculum'
+    })
   }
 
   getChildState(childState) {
@@ -30,10 +33,12 @@ class App extends Component {
   }
 
   render() {
+    const { curriculumClass } = this.state;
+
     return (
       <div className="App">
         <h1>Formuário de cadastro de currículo</h1>
-        <Curriculum />
+        <Curriculum curriculumClass={curriculumClass} />
         <Form onSubmitForm={this.onSubmitForm} getState={this.getChildState} />
       </div>
     );
