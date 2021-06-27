@@ -18,6 +18,9 @@ class Curriculum extends Component {
           <CurriculumField curriculumLabel={'Cidade:'} curriculumInfo={city} />
           <CurriculumField curriculumLabel={'Estado:'} curriculumInfo={state} />
           <CurriculumField curriculumLabel={'Tipo:'} curriculumInfo={type} />
+        </fieldset>
+        <fieldset>
+          <legend>Dados Profissionais</legend>
           <CurriculumField curriculumLabel={'Resumo do Currículo:'} curriculumInfo={resume} />
           <CurriculumField curriculumLabel={'Cargo:'} curriculumInfo={office} />
           <CurriculumField curriculumLabel={'Descrição do cargo:'} curriculumInfo={officeDescription} />
