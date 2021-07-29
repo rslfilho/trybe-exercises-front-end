@@ -12,6 +12,7 @@ class ToggleSubreddit extends Component {
     };
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleChange({ target }) {
@@ -26,18 +27,27 @@ class ToggleSubreddit extends Component {
     });
   }
 
+  handleClick() {
+    const { subreddit } = this.state;
+    const { fetchSubreddit } = this.props;
+    fetchSubreddit(subreddit);
+  }
+
   render() {
     const { subreddit } = this.state;
 
     return (
-      <select
-        name="subreddit"
-        value={ subreddit }
-        onChange={ this.handleChange }
-      >
-        <option>reactjs</option>
-        <option>frontend</option>
-      </select>
+      <div>
+        <select
+          name="subreddit"
+          value={ subreddit }
+          onChange={ this.handleChange }
+        >
+          <option>reactjs</option>
+          <option>frontend</option>
+        </select>
+        <button type="button" onClick={ this.handleClick }>Refresh</button>
+      </div>
     );
   }
 }
