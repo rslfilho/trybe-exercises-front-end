@@ -1,8 +1,14 @@
-import { REFRESH_POSTS, REFRESH_POSTS_SUCCESS } from '../actions/actionTypes';
+import {
+  REFRESH_POSTS,
+  REFRESH_POSTS_ERROR,
+  REFRESH_POSTS_SUCCESS,
+} from '../actions/actionTypes';
 
 const INITIAL_STATE = {
   loading: false,
   data: [],
+  error: '',
+  refreshTime: '',
 };
 
 const posts = (state = INITIAL_STATE, action) => {
@@ -17,6 +23,13 @@ const posts = (state = INITIAL_STATE, action) => {
       ...state,
       loading: false,
       data: action.payload,
+      refreshTime: action.time,
+    };
+  case REFRESH_POSTS_ERROR:
+    return {
+      ...state,
+      loading: false,
+      error: action.payload,
     };
   default:
     return state;
