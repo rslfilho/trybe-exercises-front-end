@@ -18,11 +18,12 @@ class ToggleSubreddit extends Component {
     const { name, value } = target;
     const { toggleSubreddit } = this.props;
 
+    console.log('trocou');
+    toggleSubreddit();
+
     this.setState({
       [name]: value,
     });
-
-    toggleSubreddit();
   }
 
   render() {
@@ -42,7 +43,7 @@ class ToggleSubreddit extends Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  toggleSubreddit: () => dispatch(toggleSelect),
+  toggleSubreddit: () => dispatch(toggleSelect()),
 });
 
 export default connect(null, mapDispatchToProps)(ToggleSubreddit);

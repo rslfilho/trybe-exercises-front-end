@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import ToggleSubreddit from './components/ToggleSubreddit';
 
 class App extends React.Component {
   render() {
@@ -9,6 +10,7 @@ class App extends React.Component {
     return (
       <div>
         <h1>{`Selected: ${subreddit}`}</h1>
+        <ToggleSubreddit />
       </div>
     );
   }

@@ -1,1 +1,1 @@
-export const TOGGLE_SELECT = 'TOOGLE_SELECT';
+export const TOGGLE_SELECT = 'TOGGLE_SELECT';

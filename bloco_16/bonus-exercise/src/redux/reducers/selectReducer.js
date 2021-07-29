@@ -7,7 +7,8 @@ const INITIAL_STATE = {
 const select = (state = INITIAL_STATE, action) => {
   switch (action.type) {
   case TOGGLE_SELECT:
-    return state.subreddit === 'reactjs' ? 'frontend' : 'reactjs';
+    console.log('reducer');
+    return { subreddit: state.subreddit === 'reactjs' ? 'frontend' : 'reactjs' };
   default:
     return state;
   }
