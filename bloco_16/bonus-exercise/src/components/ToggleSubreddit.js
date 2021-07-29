@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { toggleSelect, fetchPosts } from '../redux/actions';
+import getTime from '../helpers/getTime';
 
 class ToggleSubreddit extends Component {
   constructor(props) {
@@ -18,15 +19,7 @@ class ToggleSubreddit extends Component {
   handleChange({ target }) {
     const { name, value } = target;
     const { toggleSubreddit, fetchSubreddit } = this.props;
-    const NUMBER_TEN = 10;
-    const date = new Date();
-
-    const hour = date.getHours() < NUMBER_TEN ? `0${date.getHours()}` : date.getHours();
-    const minute = date.getMinutes() < NUMBER_TEN
-      ? `0${date.getMinutes()}` : date.getMinutes();
-    const second = date.getSeconds() < NUMBER_TEN
-      ? `0${date.getSeconds()}` : date.getSeconds();
-    const time = `${hour}:${minute}:${second}`;
+    const time = getTime();
 
     toggleSubreddit();
     fetchSubreddit(value, time);
@@ -39,15 +32,7 @@ class ToggleSubreddit extends Component {
   handleClick() {
     const { subreddit } = this.state;
     const { fetchSubreddit } = this.props;
-    const NUMBER_TEN = 10;
-    const date = new Date();
-
-    const hour = date.getHours() < NUMBER_TEN ? `0${date.getHours()}` : date.getHours();
-    const minute = date.getMinutes() < NUMBER_TEN
-      ? `0${date.getMinutes()}` : date.getMinutes();
-    const second = date.getSeconds() < NUMBER_TEN
-      ? `0${date.getSeconds()}` : date.getSeconds();
-    const time = `${hour}:${minute}:${second}`;
+    const time = getTime();
 
     fetchSubreddit(subreddit, time);
   }
